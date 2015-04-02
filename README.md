@@ -31,13 +31,14 @@
 	    	//...
 		};
 
-		```
+	```
+		
 *  不必要的宏定义使用静态局部变量代替。
 
 	```objc
-      #define kAlertTag 100 // Not so cool
-      static NSInteger kAlertTag = 100; // cool
-  ```
+      	#define kAlertTag 100 // Not so cool
+      	static NSInteger kAlertTag = 100; // cool
+  	```
 
 *  自定义通自定义Key 等使用extern,写在对应的类里面
 	```objc
@@ -49,7 +50,8 @@
 
 * 类名应该以EM开头，使用驼峰格式分隔单词，如：`EMBaseController`
 
-###声明* 不要暴露不需要的实例变量, 实例变量以下划线开头， 尽量写在m文件. 不需要让其他类知道的协议确认写在m文件.
+###声明
+* 不要暴露不需要的实例变量, 实例变量以下划线开头， 尽量写在m文件. 不需要让其他类知道的协议确认写在m文件.
   ```objc
 	// EMBaseViewController.m
 	@interface EMBaseViewController()<UIAlertViewDelegate>
@@ -67,22 +69,42 @@
 
 * C函数大写开头
 
-	```objc	void GHAwesomeFunction(BOOL hasSomeArgs);
-	```* 对象的命名参照Apple Code Guides, 如NSDictionary, NSArray
-	```objc	NSDictionary *stocks; //good
-	NSDictionary *stocksDictionary // bad
-	NSArray *stocksArray // bad
-	```* 不需要让其他类知道的协议确认写在m文件
+	```objc
+	void GHAwesomeFunction(BOOL hasSomeArgs);
+	```
+
+* 对象的命名参照Apple Code Guides, 如NSDictionary, NSArray
+
+	```objc
+	NSDictionary *stocks; //good
+
+	NSDictionary *stocksDictionary // bad
+
+	NSArray *stocksArray // bad
+
+	```
+
+* 不需要让其他类知道的协议确认写在m文件
 
   ```objc
-    // EMBaseViewController.m	@interface EMBaseViewController()<UIAlertViewDelegate> //good
-	@end
-	```###方法命名* 根据功能用#pragma marks 分组* 方法开头小写* `instancetype`代替`id`
+    // EMBaseViewController.m
+	@interface EMBaseViewController()<UIAlertViewDelegate> //good
 
-	```objc  + (instancetype)objectWithThing:(id)thing {}
+	@end
+	```
+
+###方法命名
+* 根据功能用#pragma marks 分组
+* 方法开头小写
+* `instancetype`代替`id`
+
+	```objc
+  + (instancetype)objectWithThing:(id)thing {}
   - (instancetype)init {}
   - (id)init{} // outdated
-	```* 准备淘汰的的方法加上`__deprecated`* 尽量不要用get
+	```
+* 准备淘汰的的方法加上`__deprecated`
+* 尽量不要用get
 * `BOOL`类型的属性get方法
 
   ```objc
@@ -112,7 +134,11 @@
 方法应该像这样：
 
 	```objc
-	- (void)doSomethingWithString:(NSString *)theString	{	  //...	}	```
+	- (void)doSomethingWithString:(NSString *)theString
+	{
+	  //...
+	}
+	```
 
 
 * 如果一行有非常多的参数，应该将每个参数单独拆成一行。如果使用多行，将每个参数前的冒号对齐。
