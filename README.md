@@ -31,19 +31,19 @@
 	    	//...
 		};
 
-	```
-		
+	  ```
+
 *  不必要的宏定义使用静态局部变量代替。
 
-	```objc
+	  ```objc
       	#define kAlertTag 100 // Not so cool
       	static NSInteger kAlertTag = 100; // cool
   	```
 
 *  自定义通自定义Key 等使用extern,写在对应的类里面
-	```objc
+	  ```objc
       extern NSString *const EMThemeChangedNotification;
-	```
+	  ```
 
 
 ###类名
